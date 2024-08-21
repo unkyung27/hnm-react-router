@@ -4,18 +4,18 @@ import ProductCard from '../component/ProductCard';
 
 const ProductAll = () => {
     const [productList, setProductList] = useState([]);
-    const getProducts = async() => {
-        let url = "http://localhost:5000/products";
-        let response = await fetch(url);
-        let data = await response.json();
-        // console.log("all data", data);
+    // const getProducts = async() => {
+    //     let url = "http://localhost:5000/products";
+    //     let response = await fetch(url);
+    //     let data = await response.json();
+    //     // console.log("all data", data);
 
-        setProductList(data);
-    }
+    //     setProductList(data);
+    // }
 
-    useEffect(() => {
-        getProducts()
-    },[])
+    // useEffect(() => {
+    //     getProducts()
+    // },[])
   
     return (
         <div>
