@@ -1,13 +1,14 @@
-import React from 'react'
+import React from 'react';
+import './ProductCard.css';
 
-const ProductCard = () => {
+const ProductCard = ({item}) => {
   return (
     <div>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlzTUzwMeZmpMUYo0xeBgLb_wVrsSpM3k-dcLuVrJArZ-u6-M-cC0iPcIB_w&s" alt=""/>
-        <div>Conscious Choice</div>
-        <div>티셔츠</div>
-        <div>\100,000</div>
-        <div>신제품</div>
+        <img src={item?.img} alt="" className="img-event" />
+        <div>{item?.choice === true ? "Conscious Choice" : ""}</div>
+        <div>{item?.title}</div>
+        <div>{item?.price}원</div>
+        <div>{item?.new === true ? "신제품" : ""}</div>
     </div>
   )
 }
