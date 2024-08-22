@@ -3,21 +3,25 @@ import { useEffect, useState } from 'react';
 import ProductCard from '../component/ProductCard';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Row, Col } from 'react-bootstrap';
+import { useSearchParams } from 'react-router-dom';
 
 const ProductAll = () => {
     const [productList, setProductList] = useState([]);
+    const [query, setQuery] = useSearchParams();
     const getProducts = async() => {
-        let url = "http://localhost:5000/products";
+        let searchQuery = encodeURIComponent(query.get("q")) || "";
+        console.log("쿼리값: ", searchQuery);
+        let url = `http://localhost:5000/products?q=${searchQuery}`;
         let response = await fetch(url);
+        // console.log("fetch", response);
         let data = await response.json();
-        // console.log("all data", data);
-
+        // console.log("all data", url, data);
         setProductList(data);
     }
 
     useEffect(() => {
-        getProducts()
-    },[])
+        getProducts();
+    },[query])
   
     return (
         <div>
