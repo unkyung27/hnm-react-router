@@ -9,9 +9,9 @@ const ProductAll = () => {
     const [productList, setProductList] = useState([]);
     const [query, setQuery] = useSearchParams();
     const getProducts = async() => {
-        let searchQuery = encodeURIComponent(query.get("q")) || "";
+        let searchQuery = query.get("q") || "";
         console.log("쿼리값: ", searchQuery);
-        let url = `http://localhost:5000/products?q=${searchQuery}`;
+        let url = `https://my-json-server.typicode.com/unkyung27/json-hnm/products?q=${searchQuery}`;
         let response = await fetch(url);
         // console.log("fetch", response);
         let data = await response.json();
