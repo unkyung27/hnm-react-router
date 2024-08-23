@@ -4,7 +4,7 @@ import { faUser } from '@fortawesome/free-regular-svg-icons';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 
-const Navbar = ({authenticate}) => {
+const Navbar = ({authenticate, setAuthenticate}) => {
     const menuList = ['여성', 'Divided', '남성', '신생아/유아', '아동', 'H&M HOME', 'SALE', '지속가능성'];
     
 // console.log("내비", {authenticate});
@@ -25,15 +25,17 @@ const Navbar = ({authenticate}) => {
     return (
     <div>
         <div>
-            <div className="login-button" onClick={goToLogin}>
-                <FontAwesomeIcon icon={faUser} />
+            <div className="login-button" onClick={authenticate === false ? goToLogin : () => setAuthenticate(false)}>
+                <FontAwesomeIcon icon={faUser} /> 
                 <div>{authenticate === false ? '로그인' : '로그아웃'}</div>
             </div>
         </div>
         <div className="nav-section">
-            <img 
+            <img className="nav-img-area" 
                 width={100}
-                src="https://i.pinimg.com/originals/94/8c/7f/948c7f31df5eb63955907221228842d7.png" alt=""/>
+                src="https://i.pinimg.com/originals/94/8c/7f/948c7f31df5eb63955907221228842d7.png" alt=""
+                onClick={() => navigate("/")}
+            />
         </div>
         <div className="menu-area">
             <ul className="menu-list">

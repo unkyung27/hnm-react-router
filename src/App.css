@@ -8,6 +8,11 @@
 .nav-section{
   display: flex;
   justify-content: center;
+  cursor: pointer;
+}
+
+.nav-img-area:hover {
+  cursor: pointer;
 }
 
 .menu-list{
