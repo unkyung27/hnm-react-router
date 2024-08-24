@@ -45,12 +45,17 @@
   justify-content: flex-end;
 }
 
-.container{
+.login-area{
   max-width: 660px !important;
+}
+
+.menu-toggle {
+  display: none; /* 기본적으로 숨김 */
 }
 
 @media (max-width: 768px) {
   .menu-toggle {
+    display: block;
     position: fixed;
     top: 10px;
     left: 10px;

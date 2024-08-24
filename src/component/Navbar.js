@@ -29,9 +29,6 @@ const Navbar = ({authenticate, setAuthenticate}) => {
     };
     return (
     <div>
-        <div className="menu-toggle" onClick={toggleMenu}>
-                <FontAwesomeIcon icon={faBars} />
-            </div>
         <div>
             <div className="login-button" onClick={authenticate === false ? goToLogin : () => setAuthenticate(false)}>
                 <FontAwesomeIcon icon={faUser} /> 
@@ -44,6 +41,10 @@ const Navbar = ({authenticate, setAuthenticate}) => {
                 src="https://i.pinimg.com/originals/94/8c/7f/948c7f31df5eb63955907221228842d7.png" alt=""
                 onClick={() => navigate("/")}
             />
+        </div>
+        
+        <div className="menu-toggle" onClick={toggleMenu}>
+            <FontAwesomeIcon icon={faBars} />
         </div>
         <div className="menu-area">
             <ul className={`menu-list ${isMenuOpen ? 'open' : ''}`}>
