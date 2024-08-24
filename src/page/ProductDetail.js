@@ -18,11 +18,11 @@ const ProductDetail = () => {
     }, []);
   return (
     <Container>
-        <Row>
-            <Col className="product-img">
-                <img src={product?.img} />
+        <Row className="align-items-center">
+            <Col xs={12} lg={6} className="product-img">
+                <img src={product?.img} style={{ width: "100%", maxWidth: "300px"}}/>
             </Col>
-            <Col>
+            <Col xs={12} lg={6}>
                 <div>{product?.title}</div>
                 <div>{product?.price}원</div>
                 <div>{product?.choice === true ? "Conscious Choice" : ""}</div>

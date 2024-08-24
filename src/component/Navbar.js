@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 
 const Navbar = ({authenticate, setAuthenticate}) => {
@@ -22,8 +22,16 @@ const Navbar = ({authenticate, setAuthenticate}) => {
             navigate(`/?q=${keyword}`);
         }
     }
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    };
     return (
     <div>
+        <div className="menu-toggle" onClick={toggleMenu}>
+                <FontAwesomeIcon icon={faBars} />
+            </div>
         <div>
             <div className="login-button" onClick={authenticate === false ? goToLogin : () => setAuthenticate(false)}>
                 <FontAwesomeIcon icon={faUser} /> 
@@ -38,7 +46,7 @@ const Navbar = ({authenticate, setAuthenticate}) => {
             />
         </div>
         <div className="menu-area">
-            <ul className="menu-list">
+            <ul className={`menu-list ${isMenuOpen ? 'open' : ''}`}>
                 {menuList.map((menu, index) => (
                     <li key={index}>{menu}</li>
                 ))}
